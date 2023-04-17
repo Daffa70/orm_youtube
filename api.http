@@ -1,0 +1,82 @@
+
+GET http://localhost:8000
+
+###
+GET http://localhost:8000/channels
+
+### Get detail channels
+GET http://localhost:8000/channels/2
+
+### Create channel data
+POST http://localhost:8000/channels
+Content-Type: application/json
+
+{
+    "name": "Podcast Coding",
+    "description": "ngomongin koding",
+    "user_id":1
+}
+
+### Update channel data
+PUT http://localhost:8000/channels/1
+Content-Type: application/json
+
+{
+    "name": "Ganti judul"
+    // "description": "Ganti description"
+}
+
+### Delete channel data
+DELETE  http://localhost:8000/channels/2
+
+
+
+
+// VIDEO api
+GET http://localhost:8000
+
+###
+GET http://localhost:8000/videos
+
+### Get detail videos
+GET http://localhost:8000/videos/1
+
+### Create video data
+POST http://localhost:8000/videos
+Content-Type: application/json
+
+{
+    "channel_id": 3,
+    "title": "Reksa Dana 5",
+    "description": "Cara menabung untuk pemula"
+}
+
+### Update video data
+PUT http://localhost:8000/videos/1
+Content-Type: application/json
+
+{
+    "title": "Ganti judul"
+    // "description": "Ganti description"
+}
+
+### Delete video data
+DELETE  http://localhost:8000/channels/1
+
+
+### Create user
+POST http://localhost:8000/users
+Content-Type: application/json
+
+{
+    "name": "Sabrina",
+    "email": "sabrina@mail.com",
+    "password": "password123"
+}
+
+### List user
+GET http://localhost:8000/users
+
+### Get user
+GET http://localhost:8000/users/1
+
