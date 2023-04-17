@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -11,19 +9,32 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // relasi one-to-one -> channel
-      User.hasOne(models.Channel, {foreignKey: 'user_id', as: 'channel'});
+      User.hasOne(models.Channel, { foreignKey: "user_id", as: "channel" });
 
       // relase many-to-many -> channel
-      User.belongsToMany(models.Channel, {foreignKey: 'user_id', as: 'subscribes', through: models.Subscription});
+      User.belongsToMany(models.Channel, {
+        foreignKey: "user_id",
+        as: "subscribes",
+        through: models.Subscription,
+      });
+
+      User.belongsToMany(models.Video, {
+        foreignKey: "user_id",
+        as: "coments",
+        through: models.Comment,
+      });
     }
   }
-  User.init({
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'User',
-  });
+  User.init(
+    {
+      name: DataTypes.STRING,
+      email: DataTypes.STRING,
+      password: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "User",
+    }
+  );
   return User;
 };

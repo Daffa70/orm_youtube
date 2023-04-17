@@ -80,3 +80,6 @@ GET http://localhost:8000/users
 ### Get user
 GET http://localhost:8000/users/1
 
+### Get video
+GET http://localhost:8000/users/1
+
