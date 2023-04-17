@@ -78,8 +78,28 @@ Content-Type: application/json
 GET http://localhost:8000/users
 
 ### Get user
-GET http://localhost:8000/users/1
+GET http://localhost:8000/videos/1
 
 ### Get video
-GET http://localhost:8000/users/1
+GET http://localhost:8000/videos
+
+### COMMENT VIDEO
+POST http://localhost:8000/videos-add-comment/
+Content-Type: application/json
+
+{
+    "name": "Tes komen",
+    "user_id" : 1,
+    "video_id" : 1
+}
+
+### UNCOMMENT VIDEO
+POST http://localhost:8000/videos-add-uncomment/
+Content-Type: application/json
+
+{
+    "name": "Tes komen",
+    "user_id" : 1,
+    "video_id" : 1
+}
 

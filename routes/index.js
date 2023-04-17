@@ -28,4 +28,7 @@ router.post("/videos", video.store);
 router.put("/videos/:video_id", video.update);
 router.delete("/videos/:video_id", video.destroy);
 
+router.post("/videos-add-comment/", video.comment);
+router.post("/videos-add-uncomment/", video.uncomment);
+
 module.exports = router;
