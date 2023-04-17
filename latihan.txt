@@ -1,0 +1,22 @@
+Buat Relasi Baru:
+- Many-to-Many (User,Video -> comment)
+- One-to-Many (Channel,Playlist -> ChannelPlaylist)
+- Many-to-Many (Playlist,Video -> PlaylistVideo)
+
+Model Baru
+- ChannelPlaylist
+- PlaylistVideo
+- Comment
+
+Endpoint Baru:
+- CRUD playlist
+- comment video
+
+Members:
+1. Ferdie, Aher, Fitri
+2. Dias, Hafizh, Piter
+3. Daffa, Aldy, Syaifun
+4. Yoga, Nugraha, Yasir
+5. Rafli, Tantri, Ijal
+6. Rivan, Ukasah, Fitrah
+7. Aufa, Rico, Ari, Rizky

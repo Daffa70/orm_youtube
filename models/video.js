@@ -21,6 +21,12 @@ module.exports = (sequelize, DataTypes) => {
         as: "coments",
         through: models.Comment,
       });
+
+      Video.belongsToMany(models.Playlist, {
+        foreignKey: "video_id",
+        as: "playlistvideos",
+        through: models.Comment,
+      });
     }
   }
   Video.init(
