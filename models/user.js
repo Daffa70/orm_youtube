@@ -18,10 +18,8 @@ module.exports = (sequelize, DataTypes) => {
         through: models.Subscription,
       });
 
-      User.belongsToMany(models.Video, {
+      User.hasMany(models.Comment, {
         foreignKey: "user_id",
-        as: "comments",
-        through: models.Comment,
       });
     }
   }

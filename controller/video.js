@@ -11,7 +11,7 @@ module.exports = {
             attributes: ["id", "name", "description"],
           },
           {
-            model: User,
+            model: Comment,
             as: "comments",
           },
         ],
@@ -40,7 +40,7 @@ module.exports = {
             attributes: ["id", "name", "description"],
           },
           {
-            model: User,
+            model: Comment,
             as: "comments",
           },
         ],

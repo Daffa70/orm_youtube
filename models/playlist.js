@@ -10,10 +10,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       // relasi playlistvideos
-      Playlist.belongsToMany(models.Video, {
+      Playlist.hasMany(models.PlaylistVideo, {
         foreignKey: "playlist_id",
         as: "playlistvideos",
-        through: models.PlaylistVideo,
       });
 
       Playlist.belongsTo(models.Channel, {

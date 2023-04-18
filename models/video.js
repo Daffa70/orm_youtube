@@ -16,17 +16,15 @@ module.exports = (sequelize, DataTypes) => {
         as: "channel",
       });
 
-      Video.belongsToMany(models.User, {
+      Video.hasMany(models.Comment, {
         foreignKey: "video_id",
         as: "comments",
-        through: models.Comment,
       });
 
       // relasi playlistvideos
-      Video.belongsToMany(models.Playlist, {
+      Video.hasMany(models.PlaylistVideo, {
         foreignKey: "video_id",
         as: "playlistvideos",
-        through: models.PlaylistVideo,
       });
     }
   }

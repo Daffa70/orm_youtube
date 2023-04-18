@@ -9,6 +9,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+      Comment.belongsTo(models.Video, {
+        foreignKey: "video_id",
+        as: "playlistvideos",
+      });
+
+      Comment.belongsTo(models.User, {
+        foreignKey: "user_id",
+        as: "user",
+      });
     }
   }
   Comment.init(

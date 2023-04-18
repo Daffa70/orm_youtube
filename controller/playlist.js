@@ -23,9 +23,8 @@ module.exports = {
         where: { id: id },
         include: [
           {
-            model: Video,
+            model: PlaylistVideo,
             as: "playlistvideos",
-            attributes: ["id", "title", "description"],
           },
           {
             model: Channel,
