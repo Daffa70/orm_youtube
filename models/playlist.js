@@ -10,17 +10,19 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-
-      Playlist.belongsToMany(models.Video, {
-        foreignKey: "playlist_id",
-        as: "playlistvideos",
-        through: models.Comment,
-      });
+      // define association here
+        // relasi playlistvideos
+        Playlist.belongsToMany(models.Video, {
+          foreignKey: "playlist_id",
+          as: "playlistvideos",
+          through: models.PlaylistVideo,
+        });
     }
   }
   Playlist.init({
-    playlist_id: DataTypes.INTEGER,
-    video_id: DataTypes.INTEGER
+    name: DataTypes.STRING,
+    description: DataTypes.TEXT,
+    channel_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Playlist',

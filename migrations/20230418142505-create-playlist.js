@@ -9,10 +9,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      playlist_id: {
-        type: Sequelize.INTEGER
+      name: {
+        type: Sequelize.STRING
       },
-      video_id: {
+      description: {
+        type: Sequelize.TEXT
+      },
+      channel_id: {
         type: Sequelize.INTEGER
       },
       createdAt: {

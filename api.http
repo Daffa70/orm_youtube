@@ -12,9 +12,9 @@ POST http://localhost:8000/channels
 Content-Type: application/json
 
 {
-    "name": "Podcast Coding",
-    "description": "ngomongin koding",
-    "user_id":1
+    "name": "Podcast dedy",
+    "description": "ngomongin orang",
+    "user_id":3
 }
 
 ### Update channel data
@@ -47,8 +47,8 @@ Content-Type: application/json
 
 {
     "channel_id": 3,
-    "title": "Reksa Dana 5",
-    "description": "Cara menabung untuk pemula"
+    "title": "Reksa Dana 2",
+    "description": "Cara menabung untuk senior"
 }
 
 ### Update video data
@@ -69,8 +69,8 @@ POST http://localhost:8000/users
 Content-Type: application/json
 
 {
-    "name": "Sabrina",
-    "email": "sabrina@mail.com",
+    "name": "Dono",
+    "email": "dono@mail.com",
     "password": "password123"
 }
 
@@ -83,3 +83,32 @@ GET http://localhost:8000/users/1
 ### Get video
 GET http://localhost:8000/users/1
 
+
+### Get all playlist
+GET http://localhost:8000/playlists
+
+### Get detail playlists
+GET http://localhost:8000/playlists/1
+
+### Create playlist data
+POST http://localhost:8000/playlists
+Content-Type: application/json
+
+{
+    "name": "lala",
+    "description": "lalal poo",
+    "channel_id" : 1
+}
+
+### Update playlist data
+PUT http://localhost:8000/playlists/4
+Content-Type: application/json
+
+{
+     "name": "lala",
+    "description": "lalal poo",
+    "channel_id" : 1
+}
+
+### Delete playlist data
+DELETE  http://localhost:8000/playlists/2
