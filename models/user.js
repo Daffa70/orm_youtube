@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
 
       User.belongsToMany(models.Video, {
         foreignKey: "user_id",
-        as: "coments",
+        as: "comments",
         through: models.Comment,
       });
     }

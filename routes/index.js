@@ -28,8 +28,9 @@ router.get("/videos/:video_id", video.show);
 router.post("/videos", video.store);
 router.put("/videos/:video_id", video.update);
 router.delete("/videos/:video_id", video.destroy);
+router.post("/videos-add-comment/", video.comment);
+router.post("/videos-add-uncomment/", video.uncomment);
 
-// playlist
 router.get("/playlists", playlist.index);
 router.get("/playlists/:id", playlist.show);
 router.post("/playlists", playlist.store);
