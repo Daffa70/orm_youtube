@@ -130,21 +130,21 @@ module.exports = {
         }
     },
 
-    playlistVideo: async (req, res, next) => {
+    addPlaylistVideo: async (req, res, next) => {
         try {
-            const {video_id, id} = req.body;
+            const {video_id, playlist_id} = req.body;
 
             const video = await Video.findOne({where: {id: video_id}});
-            const playlist = await Playlist.findOne({where: {id: id}});
-            if (!video || !playlist || video.id == playlist.video_id) {
+            const playlist = await Playlist.findOne({where: {id: playlist_id}});
+            if (!video || !playlist ) {
                 return res.status(404).json({
                     status: false,
-                    message: `video_id and id must be a valid id!`,
+                    message: `video_id and playlist_id must be a valid id!`,
                     data: null
                 });
             }
 
-            const isPlaylistVideo = await PlaylistVideo.findOne({where: {video_id, id}});
+            const isPlaylistVideo = await PlaylistVideo.findOne({where: {video_id, playlist_id}});
             if (isPlaylistVideo) {
                 return res.status(400).json({
                     status: false,
@@ -153,7 +153,7 @@ module.exports = {
                 });
             }
 
-            const playlistvideo = await PlaylistVideo.create({video_id, id});
+            const playlistvideo = await PlaylistVideo.create({video_id, playlist_id});
             return res.status(201).json({
                 status: true,
                 message: 'success',
@@ -163,4 +163,28 @@ module.exports = {
             next(error);
         }
     },
+
+    delPlaylistVideo: async (req, res, next) => {
+        try {
+            const {video_id, playlist_id} = req.body;
+
+            const deleted = await PlaylistVideo.destroy({where: {playlist_id, video_id}});
+
+            if (!deleted) {
+                return res.status(404).json({
+                    status: false,
+                    message: `can't find channel with id ${playlist_id}!`,
+                    data: null
+                });
+            }
+
+            return res.status(200).json({
+                status: true,
+                message: 'success',
+                data: null
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
 };

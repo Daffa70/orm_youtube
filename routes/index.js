@@ -36,5 +36,8 @@ router.get("/playlists/:id", playlist.show);
 router.post("/playlists", playlist.store);
 router.put("/playlists/:id", playlist.update);
 router.delete("/playlists/:id", playlist.destroy);
+router.post("/playlists/addPlaylist", playlist.addPlaylistVideo);
+router.delete("/playlists/delPlaylist", playlist.delPlaylistVideo);
+
 
 module.exports = router;

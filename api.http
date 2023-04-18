@@ -132,3 +132,17 @@ Content-Type: application/json
 
 ### Delete playlist data
 DELETE  http://localhost:8000/playlists/2
+
+### AddPlaylistVideo
+POST http://localhost:8000/playlists/addPlaylist
+Content-Type: application/json
+
+{
+    "video_id" : 1,
+    "playlist_id" : 1
+}
+
+### DelPlaylistVideo
+DELETE  http://localhost:8000/playlists/1
+Content-Type: application/json
+
