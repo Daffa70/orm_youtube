@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Channel extends Model {
     /**
@@ -11,22 +9,34 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // relasi one-to-one -> user
-      Channel.belongsTo(models.User, {foreignKey: 'user_id', as: 'user'});
+      Channel.belongsTo(models.User, { foreignKey: "user_id", as: "user" });
 
       // relasi one-to-many -> video
-      Channel.hasMany(models.Video, {foreignKey: 'channel_id', as: 'videos'});
+      Channel.hasMany(models.Video, { foreignKey: "channel_id", as: "videos" });
 
       // relasi many-to-many -> use
-      Channel.belongsToMany(models.User, {foreignKey: 'channel_id', as: 'subscribers', through: models.Subscription});
+      Channel.belongsToMany(models.User, {
+        foreignKey: "channel_id",
+        as: "subscribers",
+        through: models.Subscription,
+      });
+
+      Channel.hasMany(models.Playlist, {
+        foreignKey: "channel_id",
+        as: "videos_in_playlist",
+      });
     }
   }
-  Channel.init({
-    user_id: DataTypes.INTEGER,
-    name: DataTypes.STRING,
-    description: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Channel',
-  });
+  Channel.init(
+    {
+      user_id: DataTypes.INTEGER,
+      name: DataTypes.STRING,
+      description: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "Channel",
+    }
+  );
   return Channel;
 };

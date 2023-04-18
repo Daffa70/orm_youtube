@@ -142,6 +142,15 @@ Content-Type: application/json
     "playlist_id" : 1
 }
 
+### AddPlaylistVideo
+POST http://localhost:8000/playlists/delPlaylist
+Content-Type: application/json
+
+{
+    "video_id" : 1,
+    "playlist_id" : 1
+}
+
 ### DelPlaylistVideo
 DELETE  http://localhost:8000/playlists/1
 Content-Type: application/json
